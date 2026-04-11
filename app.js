@@ -146,11 +146,22 @@ window.onload = () => {
   loadDashboardData();
 };
 
+const pwaSeek1 = document.getElementById("pwa-seek1");
+const pwaSeek2 = document.getElementById("pwa-seek2");
+const pwaHide = document.getElementById("pwa-hide");
+
+
 const isPWA = window.matchMedia('(display-mode: standalone)').matches 
               || window.navigator.standalone; // iOS用
 
 if (isPWA) {
   const body = document.getElementById("body");
-  body.style.touchAction = "none";
+  body.style.touchAction = "none";;
+  pwaSeek1.style.display = "block";
+  pwaSeek2.style.display = "block";
+  pwaHide.style.display = "none";
 } else {
+  pwaSeek1.style.display = "none";
+  pwaSeek2.style.display = "none";
+  pwaHide.style.display = "block";
 }

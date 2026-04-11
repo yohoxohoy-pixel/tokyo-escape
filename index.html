@@ -19,13 +19,14 @@
     .section-title { font-size: 1.2rem; font-weight: bold; margin: 20px 0 10px; border-bottom: 2px solid #dee2e6; padding-bottom: 5px; }
   </style>
 </head>
+
 <body id="body">
 
   <header class="bg-dark text-white text-center py-3">
     <h1 class="m-0 h4">TOKYO-ESCAPE</h1>
   </header>
 
-  <div class="container mt-3" id="app-container">
+  <div class="container mt-3" id="pwa-seek1">
     <div id="earn-section">
       <h2 class="section-title">Dashboard</h2>
       <div class="row">
@@ -85,10 +86,14 @@
     </div>
   </div>
 
-  <nav class="nav-bottom d-flex pb-4">
+  <nav class="nav-bottom d-flex pb-4" id="pwa-seek2">
     <a href="#" class="nav-link flex-fill active" id="tab-earn">EARN</a>
     <a href="#" class="nav-link flex-fill" id="tab-use">USE</a>
   </nav>
+
+  <div class="mt-5" id="pwa-hide">
+    <h2 class="text-center text-danger fw-bold">Please use a PWA</h2>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="app.js"></script>
