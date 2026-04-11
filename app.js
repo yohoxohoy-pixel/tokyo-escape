@@ -150,7 +150,7 @@ const isPWA = window.matchMedia('(display-mode: standalone)').matches
               || window.navigator.standalone; // iOS用
 
 if (isPWA) {
-  const body = getElementById("body");
+  const body = document.getElementById("body");
   body.style.touchAction = "none";
 } else {
 }
