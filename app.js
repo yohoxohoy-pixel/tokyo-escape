@@ -146,12 +146,12 @@ window.onload = () => {
   loadDashboardData();
 };
 
-const isPWA = window.matchMedia('(display-mode: standalone)').matches 
-              || window.navigator.standalone; // iOS用
+// const isPWA = window.matchMedia('(display-mode: standalone)').matches 
+//               || window.navigator.standalone; // iOS用
 
-if (isPWA) {
+// if (isPWA) {
 
-} else {
-    alert("Please use a PWA");
-    window.location.href = "alert.html";
-}
+// } else {
+//     alert("Please use a PWA");
+//     window.location.href = "alert.html";
+// }
