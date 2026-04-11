@@ -4,6 +4,15 @@ const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwyXFT8i0NOCCI8
 // Chart instances
 let earnMoneyChart, earnDaysChart, use30DaysChart, useTotalChart;
 
+// --- Loading UI Logic ---
+function showLoading() {
+  document.getElementById('loading-overlay').classList.remove('d-none');
+}
+
+function hideLoading() {
+  document.getElementById('loading-overlay').classList.add('d-none');
+}
+
 // Tab Switching Logic
 document.getElementById('tab-earn').addEventListener('click', (e) => {
   e.preventDefault();
@@ -31,12 +40,15 @@ function switchTab(tab) {
 
 // Fetch Dashboard Data
 async function loadDashboardData() {
+  showLoading(); // 通信開始時にぐるぐる表示
   try {
     const response = await fetch(GAS_WEB_APP_URL);
     const data = await response.json();
     updateCharts(data);
   } catch (error) {
     console.error('Error fetching data:', error);
+  } finally {
+    hideLoading(); // 通信終了時にぐるぐる非表示
   }
 }
 
@@ -111,6 +123,8 @@ async function handleFormSubmit(type) {
     payload.price = document.getElementById('use-price').value;
   }
 
+  showLoading(); // 送信開始時にぐるぐる表示
+
   try {
     // Note: no-cors is used to bypass CORS preflight errors from external domains to GAS POST
     await fetch(GAS_WEB_APP_URL, {
@@ -133,6 +147,7 @@ async function handleFormSubmit(type) {
     console.error('Submission Error:', error);
     alert('Failed to send data. Please check connection.');
   } finally {
+    hideLoading(); // 送信完了（エラー含む）時にぐるぐる非表示
     // Restore UI
     submitBtn.disabled = false;
     submitBtn.innerText = originalText;
