@@ -145,3 +145,13 @@ window.onload = () => {
   document.getElementById('earn-date').valueAsDate = new Date();
   loadDashboardData();
 };
+
+const isPWA = window.matchMedia('(display-mode: standalone)').matches 
+              || window.navigator.standalone; // iOS用
+
+if (isPWA) {
+
+} else {
+    alert("Please use a PWA");
+    window.location.href = "alert.html";
+}
