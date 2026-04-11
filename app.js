@@ -146,12 +146,11 @@ window.onload = () => {
   loadDashboardData();
 };
 
-// const isPWA = window.matchMedia('(display-mode: standalone)').matches 
-//               || window.navigator.standalone; // iOS用
+const isPWA = window.matchMedia('(display-mode: standalone)').matches 
+              || window.navigator.standalone; // iOS用
 
-// if (isPWA) {
-
-// } else {
-//     alert("Please use a PWA");
-//     window.location.href = "alert.html";
-// }
+if (isPWA) {
+  const body = getElementById("body");
+  body.style.touchAction = "none";
+} else {
+}
