@@ -1,6 +1,6 @@
 {
-  "name": "TOKYO-ESC",
-  "short_name": "TOKYO-ESCAPE",
+  "name": "TOKYO-ESCAPE",
+  "short_name": "TOKYO-ESC",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#212529",
