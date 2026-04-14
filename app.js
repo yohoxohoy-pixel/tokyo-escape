@@ -190,7 +190,5 @@ if (isPWA) {
 }
 
 window.addEventListener('online', () => {
-  fetchData();
+  loadDashboardData();
 });
-
-window.onload = fetchData;
