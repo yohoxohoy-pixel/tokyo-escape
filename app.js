@@ -1,4 +1,12 @@
 // app.js
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(registration => console.log('SW registered'))
+      .catch(err => console.log('SW registration failed', err));
+  });
+}
+
 const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwyXFT8i0NOCCI8hzDzWrD0QBkfVc4mHH3J6_4A9oQWpBdlB4oYWaSgAcGjBssuC80d/exec';
 
 // Chart instances
@@ -180,3 +188,9 @@ if (isPWA) {
   pwaSeek2.style.display = "none";
   pwaHide.style.display = "block";
 }
+
+window.addEventListener('online', () => {
+  fetchData();
+});
+
+window.onload = fetchData;
